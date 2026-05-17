@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}LLM Chat{% endblock %}</title>
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: system-ui, -apple-system, sans-serif; background: #f0f2f5; color: #1a1a2e; min-height: 100vh; }
+
+        nav {
+            background: #1a1a2e;
+            color: #fff;
+            padding: 0 24px;
+            height: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .nav-brand { font-weight: 700; font-size: 18px; letter-spacing: -0.3px; color: #90caf9; text-decoration: none; }
+        .nav-links { display: flex; align-items: center; gap: 8px; }
+        .nav-links span { color: #aaa; font-size: 14px; margin-right: 4px; }
+        .nav-links a { color: #90caf9; text-decoration: none; font-size: 14px; padding: 6px 12px; border-radius: 6px; transition: background 0.15s; }
+        .nav-links a:hover { background: rgba(144, 202, 249, 0.15); }
+
+        .container { max-width: 900px; margin: 0 auto; padding: 32px 20px; }
+
+        .card {
+            background: #fff;
+            border-radius: 12px;
+            padding: 32px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+        }
+
+        h1 { font-size: 24px; font-weight: 700; }
+        h2 { font-size: 20px; font-weight: 700; }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 9px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: opacity 0.15s, transform 0.1s;
+        }
+        .btn:active { transform: scale(0.97); }
+        .btn-primary  { background: #1565c0; color: #fff; }
+        .btn-primary:hover  { background: #1251a3; }
+        .btn-secondary { background: #455a64; color: #fff; }
+        .btn-secondary:hover { background: #37474f; }
+        .btn-github { background: #24292e; color: #fff; }
+        .btn-github:hover { background: #111; }
+
+        .error {
+            color: #b71c1c;
+            background: #ffebee;
+            border: 1px solid #ffcdd2;
+            border-radius: 8px;
+            padding: 10px 14px;
+            font-size: 14px;
+            margin-bottom: 16px;
+        }
+
+        .form-group { margin-bottom: 14px; }
+        .form-group input {
+            width: 100%;
+            padding: 10px 14px;
+            border: 1px solid #dde1e7;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: border-color 0.15s, box-shadow 0.15s;
+            background: #fafafa;
+        }
+        .form-group input:focus {
+            outline: none;
+            border-color: #1565c0;
+            box-shadow: 0 0 0 3px rgba(21,101,192,0.12);
+            background: #fff;
+        }
+    </style>
+</head>
+<body>
+<nav>
+    <a class="nav-brand" href="/">&#x1F4AC; LLM Chat</a>
+    <div class="nav-links">
+        {% if user %}
+            <span>{{ user.login }}</span>
+            <a href="/logout">Logout</a>
+        {% else %}
+            <a href="/login">Login</a>
+            <a href="/register">Register</a>
+        {% endif %}
+    </div>
+</nav>
+<div class="container">
+    {% block content %}{% endblock %}
+</div>
+</body>
+</html>

@@ -1,0 +1,33 @@
+# Environment
+.env
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pdb
+venv/
+.venv/
+*.egg-info/
+dist/
+build/
+
+# LLM model (large binary, distribute separately)
+*.gguf
+
+# Redis dump
+dump.rdb
+
+# IDE
+.idea/
+.vscode/
+.claude/
+
+# Alembic cache
+alembic/versions/__pycache__/
+
+# Local documents (not for repo)
+about.md
+REPORT.html
+Homework 2 — LLM Chat.md

@@ -1,0 +1,15 @@
+fastapi
+uvicorn[standard]
+sqlalchemy[asyncio]
+asyncpg
+psycopg2-binary
+alembic
+python-jose[cryptography]
+bcrypt
+redis
+httpx
+jinja2
+python-multipart
+python-dotenv
+anyio
+llama-cpp-python
